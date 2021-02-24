@@ -24,10 +24,10 @@ class PlayerTest {
     @Test
     void playerBetsWithAmount() {
         Player player = new Player(100);
-        player.playerBets(100);
+        player.playerBets(10);
 
-        assertThat(player.playerBalance()).isEqualTo(0);
-        assertThat(player.playerBetAmount()).isEqualTo(100);
+        assertThat(player.playerBalance()).isEqualTo(90);
+        assertThat(player.playerBetAmount()).isEqualTo(10);
     }
 
 
@@ -70,5 +70,14 @@ class PlayerTest {
         player.playerBets(10);
         player.playerBets(10);
         assertThat(player.totalAmountBet()).isEqualTo(20);
+    }
+
+    @Test
+    void playerTotalAmountBetsWithReward(){
+        Player player = new Player(120);
+        player.playerBets(10);
+        player.playerBets(100);
+        assertThat(player.totalAmountBet()).isEqualTo(110);
+        assertThat(player.playerBalance()).isEqualTo(20);
     }
 }

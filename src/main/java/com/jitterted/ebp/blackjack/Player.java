@@ -21,6 +21,8 @@ public class Player {
         playerBet = betAmount;
         cumulativeBets += betAmount;
         playerBalance -= betAmount;
+        if(betAmount >=100)
+            playerBalance += 10;
     }
 
     public int playerBalance() {

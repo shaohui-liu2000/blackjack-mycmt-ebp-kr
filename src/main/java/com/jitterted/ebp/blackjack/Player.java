@@ -3,6 +3,8 @@ package com.jitterted.ebp.blackjack;
 public class Player {
     private int playerBalance = 0;
     private int playerBet = 0;
+    private int cumulativeBets = 0;
+
 
     public Player(){
     }
@@ -17,6 +19,7 @@ public class Player {
 
     public void playerBets(int betAmount) {
         playerBet = betAmount;
+        cumulativeBets += betAmount;
         playerBalance -= betAmount;
     }
 
@@ -40,4 +43,7 @@ public class Player {
         playerBalance += playerBet * 1;
     }
 
+    public int totalAmountBet() {
+        return cumulativeBets;
+    }
 }

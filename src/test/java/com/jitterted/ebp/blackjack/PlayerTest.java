@@ -63,4 +63,12 @@ class PlayerTest {
         player.playerTies();
         assertThat(player.playerBalance()).isEqualTo(10);
     }
+
+    @Test
+    void playerTotalAmountBets(){
+        Player player = new Player(20);
+        player.playerBets(10);
+        player.playerBets(10);
+        assertThat(player.totalAmountBet()).isEqualTo(20);
+    }
 }
